@@ -45,7 +45,7 @@ and a basic frontend to demonstrate API functionality.
 ```bash
 cd tasks_backend
 python3 -m venv env
-source /bin/env/activate
+source /env/bin/activate
 
 pip install -r requirements.txt
 python manage.py migrate
