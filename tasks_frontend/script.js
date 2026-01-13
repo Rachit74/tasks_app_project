@@ -3,7 +3,7 @@ const API_BASE = "http://127.0.0.1:8000/api";
 // ---------- AUTH ----------
 
 function register() {
-  fetch(`${API_BASE}/auth/register/`, {
+  fetch(`${API_BASE}/auth/v1/register/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -19,7 +19,7 @@ function register() {
 }
 
 function login() {
-  fetch(`${API_BASE}/auth/login/`, {
+  fetch(`${API_BASE}/auth/v1/login/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -51,7 +51,7 @@ function authHeaders() {
 // ---------- TASKS ----------
 
 function loadTasks() {
-  fetch(`${API_BASE}/tasks/task_create_list/`, {
+  fetch(`${API_BASE}/tasks/v1/task_create_list/`, {
     headers: authHeaders(),
   })
     .then(res => {
@@ -90,7 +90,7 @@ function loadTasks() {
 
 
 function createTask() {
-  fetch(`${API_BASE}/tasks/task_create_list/`, {
+  fetch(`${API_BASE}/tasks/v1/task_create_list/`, {
     method: "POST",
     headers: authHeaders(),
     body: JSON.stringify({
@@ -102,7 +102,7 @@ function createTask() {
 }
 
 function deleteTask(id) {
-  fetch(`${API_BASE}/tasks/task_detail/${id}`, {
+  fetch(`${API_BASE}/tasks/v1/task_detail/${id}`, {
     method: "DELETE",
     headers: authHeaders(),
   }).then(() => loadTasks());
